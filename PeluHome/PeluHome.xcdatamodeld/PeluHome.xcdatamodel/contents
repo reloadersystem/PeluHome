@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Adicionales" representedClassName="Adicionales" syncable="YES">
+        <attribute name="cantidad" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="idAdicional" optional="YES" attributeType="String"/>
+        <attribute name="idPedido" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="idServicio" optional="YES" attributeType="String"/>
+        <attribute name="nombreServicio" optional="YES" attributeType="String"/>
+        <attribute name="precio" optional="YES" attributeType="String"/>
+        <attribute name="precioFinal" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rutaImagen" optional="YES" attributeType="String"/>
+        <attribute name="servicioAdicional" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Carrito" representedClassName="Carrito" syncable="YES">
+        <attribute name="cantidad" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="idServicio" optional="YES" attributeType="String"/>
+        <attribute name="nombreServicio" optional="YES" attributeType="String"/>
+        <attribute name="precio" optional="YES" attributeType="String"/>
+        <attribute name="precioFinal" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rutaImagen" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ServicioAdicional" representedClassName="ServicioAdicional" syncable="YES">
+        <attribute name="detalle" optional="YES" attributeType="String"/>
+        <attribute name="idPedido" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Adicionales" positionX="-63" positionY="36" width="128" height="164"/>
+        <element name="Carrito" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="ServicioAdicional" positionX="-54" positionY="90" width="128" height="74"/>
+    </elements>
+</model>

@@ -1,0 +1,6 @@
+framework module Pods_PeluHome {
+  umbrella header "Pods-PeluHome-umbrella.h"
+
+  export *
+  module * { export * }
+}

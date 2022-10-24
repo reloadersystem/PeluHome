@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>601409967946-qtq36b56aobfcir4h1tkkoia0cp7irfr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.601409967946-qtq36b56aobfcir4h1tkkoia0cp7irfr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD8UesUY5gnZGBYBCFrHCWGH-iPlvb2_Sw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>601409967946</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gchavez.PeluHome</string>
+	<key>PROJECT_ID</key>
+	<string>peluhome</string>
+	<key>STORAGE_BUCKET</key>
+	<string>peluhome.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:601409967946:ios:da035f9c94bc09298453b3</string>
+	<key>DATABASE_URL</key>
+	<string>https://peluhome.firebaseio.com</string>
+</dict>
+</plist>
