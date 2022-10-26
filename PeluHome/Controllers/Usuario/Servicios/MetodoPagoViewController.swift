@@ -74,6 +74,8 @@ class MetodoPagoViewController: UIViewController, UIImagePickerControllerDelegat
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         // Configurar UI
+        
+        //TODO: Modificar
         contenedorDeposito.isHidden = true
         btnTomarFoto.isHidden = true
         btnGaleria.isHidden = true

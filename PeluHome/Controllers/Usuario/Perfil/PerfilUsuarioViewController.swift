@@ -132,7 +132,13 @@ extension PerfilUsuarioViewController: DeleteUserViewControllerProtocol{
     }
     
     func reloadDeleteData(_ dataSource: DeleteUserResponse) {
-        print(dataSource)
+        print(dataSource.mensajeCodigo)
+        self.mostrarAlert(message: " \(dataSource.mensajeCodigo)")
         
+        tabBarController?.tabBar.isHidden = true
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let _vc = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+        _vc.modalPresentationStyle = .currentContext
+        self.present(_vc, animated: true, completion: nil)
     }
 }

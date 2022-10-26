@@ -25,7 +25,8 @@ extension PerfilUsuarioPresenter {
        
         self.webService.deleteAppUser(codigoUsuario: user, completion: { deleteUserResponse in
            let arrayList = deleteUserResponse
-            self.controller.reloadDeleteData(deleteUserResponse)
+           self.controller.reloadDeleteData(deleteUserResponse)
+            print(deleteUserResponse)
        }, errorHandler: { errorMessage in
            print(errorMessage)
        })

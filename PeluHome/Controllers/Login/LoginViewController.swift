@@ -53,22 +53,14 @@ class LoginViewController: UIViewController {
                 
                 if let json = value as? [[String:Any]]
                 {
-                    //let  estado = json[1]["obligatorio"] as! Bool
-                    let estado  =  true
+                    let  estado = json[1]["obligatorio"] as! Bool
+                    //let versionServer = json[1]["version"]as! String
+                    //TODO: activar version
+                    let versionServer = "2.0.3"
                     
-                    if(estado){
-                        self.despuesButton.isEnabled =  false
-                        //let versionServer = json[1]["version"]as! String
-                        let versionServer = "2.0.3"
-                        let versionXcode = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "1.0"
-                        self.compareVersion(current: versionXcode as! String, appStore: versionServer, estado: estado)
-                        
-                    }else{
-                        self.despuesButton.isEnabled =  true
-                        let versionServer = "2.0.3"
-                        let versionXcode = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "1.0"
-                        self.compareVersion(current: versionXcode as! String, appStore: versionServer, estado: estado)
-                    }
+                    
+                    let versionXcode = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "1.0"
+                    self.compareVersion(current: versionXcode as! String, appStore: versionServer, estado: estado)
                 }
                 
             case .failure(let error):
@@ -85,7 +77,17 @@ class LoginViewController: UIViewController {
         } else if versionCompare == .orderedAscending {
             // will execute the code here
             print("ask user to update")
+            
+            let estado  =  true
+            
+            if(estado){
+                self.despuesButton.isEnabled =  false
+            } else{
+                self.despuesButton.isEnabled =  true
+            }
+            
             self.initUpdateMessage()
+            
         } else if versionCompare == .orderedDescending {
             // execute if current > appStore
             print("don't expect happen...")
