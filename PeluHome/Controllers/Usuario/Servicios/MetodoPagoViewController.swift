@@ -9,51 +9,52 @@ import UIKit
 
 class MetodoPagoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var btnEfectivos: UIButton!
+    @IBOutlet weak var btnDepositos: UIButton!
+    @IBOutlet weak var btnGalerias: UIButton!
+    @IBOutlet weak var contenedorDepositos: UIView!
+    @IBOutlet weak var imgDepositos: UIImageView!
+    @IBOutlet weak var btnTomarFotos: UIButton!
+    
     var miControladorImagen: UIImagePickerController!
     var guardaImagen: UIImage?
     var metodoPago = "efectivo"
     var imagen = ""
     
-    @IBOutlet weak var btnEfectivo: UIButton!
-    @IBOutlet weak var btnDeposito: UIButton!
-    @IBOutlet weak var btnTomarFoto: UIButton!
-    @IBOutlet weak var btnGaleria: UIButton!
-    @IBOutlet weak var contenedorDeposito: UIView!
-    @IBOutlet weak var imgDeposito: UIImageView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configurarUI()
     }
+
     
-    @IBAction func seleccionarMetodoPago(_ sender: UIButton) {
-        contenedorDeposito.isHidden = sender != btnDeposito
-        btnTomarFoto.isHidden = sender != btnDeposito
-        btnGaleria.isHidden = sender != btnDeposito
-        let imgEfectivo = sender == btnEfectivo ? UIImage(systemName: "largecircle.fill.circle") : UIImage(systemName: "circle")
-        let imgDeposito = sender == btnDeposito ? UIImage(systemName: "largecircle.fill.circle") : UIImage(systemName: "circle")
-        btnEfectivo.setImage(imgEfectivo, for: .normal)
-        btnEfectivo.tintColor = sender == btnEfectivo ? COLOR_ACCENT : .darkGray
-        btnDeposito.setImage(imgDeposito, for: .normal)
-        btnDeposito.tintColor = sender == btnDeposito ? COLOR_ACCENT : .darkGray
-        metodoPago = sender == btnDeposito ? "deposito" : "efectivo"
+    @IBAction func metodoPagoSelected(_ sender: UIButton) {
+        contenedorDepositos.isHidden = sender != btnDepositos
+        btnTomarFotos.isHidden = sender != btnDepositos
+        btnGalerias.isHidden = sender != btnDepositos
+        let imgEfectivo = sender == btnEfectivos ? UIImage(systemName: "largecircle.fill.circle") : UIImage(systemName: "circle")
+        let imgDeposito = sender == btnDepositos ? UIImage(systemName: "largecircle.fill.circle") : UIImage(systemName: "circle")
+        btnEfectivos.setImage(imgEfectivo, for: .normal)
+        btnEfectivos.tintColor = sender == btnEfectivos ? COLOR_ACCENT : .darkGray
+        btnDepositos.setImage(imgDeposito, for: .normal)
+        btnDepositos.tintColor = sender == btnDepositos ? COLOR_ACCENT : .darkGray
+        metodoPago = sender == btnDepositos ? "deposito" : "efectivo"
     }
     
-    @IBAction func tomarFoto(_ sender: Any) {
+    @IBAction func takePhoto(_ sender: Any) {
         miControladorImagen = UIImagePickerController()
         miControladorImagen.delegate = self
         miControladorImagen.sourceType = .camera
         present(miControladorImagen, animated: true, completion: nil)
     }
     
-    @IBAction func seleccionarGaleria(_ sender: Any) {
+    @IBAction func takeGalery(_ sender: Any) {
         miControladorImagen = UIImagePickerController()
         miControladorImagen.delegate = self
         miControladorImagen.sourceType = .photoLibrary
         present(miControladorImagen, animated: true, completion: nil)
     }
     
-    @IBAction func aceptarMetodoPago(_ sender: Any) {
+    @IBAction func okPago(_ sender: Any) {
         Programado.shared.formaPago = metodoPago
         Inmediato.shared.formaPago = metodoPago
         self.navigationController?.popViewController(animated: true)
@@ -66,6 +67,7 @@ class MetodoPagoViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
+    
     func configurarUI() {
         // Configurar Navigation Bar
         title = "Metodo de pago"
@@ -76,14 +78,14 @@ class MetodoPagoViewController: UIViewController, UIImagePickerControllerDelegat
         // Configurar UI
         
         //TODO: Modificar
-        contenedorDeposito.isHidden = true
-        btnTomarFoto.isHidden = true
-        btnGaleria.isHidden = true
+        contenedorDepositos.isHidden = true
+        btnTomarFotos.isHidden = true
+        btnGalerias.isHidden = true
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         miControladorImagen.dismiss(animated: true, completion: nil)
-        imgDeposito.image = info[.originalImage] as? UIImage
+        imgDepositos.image = info[.originalImage] as? UIImage
         guardaImagen = info[.originalImage] as? UIImage
     }
     
